@@ -1,0 +1,171 @@
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0 20px 200px;
+    padding: 0;
+    width: 400px;
+}
+
+header{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0;
+}
+header img{
+    margin: 0 0 0 30px;
+    width: 350px;
+}
+header h1{
+    text-align: center;
+    margin: 40px 0;
+    color:  rgba(0, 0, 0, 0.627);
+    font-family: 'Fauna One', serif;
+    font-size: 2rem;
+    font-weight: lighter;
+    word-spacing: 20px;
+    letter-spacing: 3px;
+    text-shadow: black;
+}
+
+main{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0;
+}
+
+#about{
+    margin: 0 0 30px 0;
+    color: black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+}
+
+#about h2{    
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.627);
+    color: white;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+#about ul{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-size: 40px;
+    text-align: center;
+}
+
+#portfolio{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+}
+
+#portfolio h2{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.627);
+    color: white;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
+@media all and (min-width: 1000px){    
+    body{
+        margin: 0;
+        width: 100%;
+    }
+
+    header{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        margin: 30px 55px 40px;
+        max-width: 980px;
+    }
+
+    header img{
+        position: relative;
+        display: flex;
+        justify-self: right;
+        margin: 0 0 0 95px;
+        width: 25%;
+    }
+
+    header h1{
+        justify-self: left;
+        width: 60%;
+        margin: 0 25px;
+        color:  rgba(0, 0, 0, 0.627);
+        font-family: 'Fauna One', serif;
+        font-size: 2rem;
+        font-weight: lighter;
+        word-spacing: 20px;
+        letter-spacing: 3px;
+        text-shadow: black;
+        
+        
+    }
+
+    main{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0 0 20px 0;
+    max-width: 1094px;
+    }
+
+    #portfolio{
+        justify-self: left;
+        width: 50%;
+        margin: 0 25px 0 25px;
+        padding: 0 5%;
+        color: black;
+        font-family: 'Roboto Slab', serif;
+        font-size: 18px;
+        
+    }
+
+    #portfolio h2{
+        height: 20px;
+        margin: 0;
+        padding: 0 5px 15px;
+        background-color: rgba(0, 0, 0, 0.627);
+        color: white;
+        font-family: 'Roboto Slab', serif;
+        font-size: 20px;
+    }
+
+    #about{
+        justify-self: right;
+        width: 30%;
+        margin: 0;
+        color: black;
+        
+
+    }
+
+    #about h2{
+        height: 20px;
+        margin: 0;
+        padding: 0 5px 15px;
+        background-color: rgba(0, 0, 0, 0.627);
+        color: white;
+        font-family: 'Roboto Slab', serif;
+        font-size: 20px;
+    }
+
+    #about ul{
+        justify-self: center;
+        margin: 50px 0 0 0;
+        padding: 0 0 0 0;
+        font-size: 80px;
+    }
+}
