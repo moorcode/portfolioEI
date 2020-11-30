@@ -1,171 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
 body{
-    display: flex;
-    flex-direction: column;
-    margin: 30px 0 20px 100px;
-    padding: 0;
-    width: 400px;
+    max-width: 1180px;
+    background-color: rgb(63, 88, 107);
+    background-image: url(https://moorcode.files.wordpress.com/2020/08/lmc-1.jpg);
+    background-position: right;
+    background-size: auto;
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 header{
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 0;
-}
-header img{
-    margin: 0 0 0 30px;
-    width: 350px;
-}
-header h1{
-    text-align: center;
-    margin: 40px 0;
-    color:  rgba(0, 0, 0, 0.627);
-    font-family: 'Fauna One', serif;
-    font-size: 2rem;
-    font-weight: lighter;
-    word-spacing: 20px;
-    letter-spacing: 3px;
-    text-shadow: black;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 
 main{
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 
-#about{
-    margin: 0 0 30px 0;
-    color: black;
-    font-family: 'Roboto Slab', serif;
-    font-size: 16px;
+#banner {
+    min-width: 98%;
+    height: 225px;
 }
 
-#about h2{    
+#branding {
+    margin-bottom: 150px;
+    padding: 75px 5px 55px 5px;
+    background-color: rgb(24, 26, 27);
+    text-align: center;
+    opacity: 90%;
+}
+
+.logo {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    min-height: 450px;
+}
+
+h1 {
+    margin: 70px 0 0 0;
+    font-family: "Anonymous Pro",monospace;
+    font-style: normal;
+    font-weight: 10;
+    font-size: 90px;
+    color: rgb(143, 169, 189);
+}
+
+h2 {
+    margin: 70px 0 70px 0;
+    color: #a8a6a1;
+    font-family: "Yrsa",Georgia,serif;
+    font-size: 45px;
+    font-weight: 1;
+}
+
+#social-media {
+    height: 150px;
     margin: 0;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.627);
-    color: white;
-    font-family: 'Roboto Slab', serif;
-    font-size: 20px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
 }
 
-#about ul{
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
+#social-media a {
+    background-color: #4f6e86;
+    color: #fff;
     font-size: 40px;
-    text-align: center;
+    margin: 5px 9px;
+    padding: 25px;
+    border-radius: 50%;
 }
 
-#portfolio{
-    margin: 0;
+#menu {
+    margin: 90px 0 0 0;
     padding: 0;
-    color: black;
-    font-family: 'Roboto Slab', serif;
-    font-size: 16px;
-}
-
-#portfolio h2{
-    margin: 0;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0.627);
-    color: white;
-    font-family: 'Roboto Slab', serif;
-    font-size: 20px;
-    text-align: center;
-}
-
-
-
-@media all and (min-width: 800px){    
-    body{
-        margin: 0;
-        width: 100%;
-    }
-
-    header{
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        margin: 30px 55px 40px;
-        max-width: 980px;
-    }
-
-    header img{
-        position: relative;
-        display: flex;
-        justify-self: right;
-        margin: 0 0 0 95px;
-        width: 25%;
-    }
-
-    header h1{
-        justify-self: left;
-        width: 60%;
-        margin: 0 25px;
-        color:  rgba(0, 0, 0, 0.627);
-        font-family: 'Fauna One', serif;
-        font-size: 2rem;
-        font-weight: lighter;
-        word-spacing: 20px;
-        letter-spacing: 3px;
-        text-shadow: black;
-        
-        
-    }
-
-    main{
+    background-color: #4f6e86;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin: 0 0 20px 0;
-    max-width: 1094px;
-    }
+    justify-content: space-evenly;
+    list-style: none;
+    font-family: 'Bebas Neue', cursive;
+}
 
-    #portfolio{
-        justify-self: left;
-        width: 50%;
-        margin: 0 25px 0 25px;
-        padding: 0 5%;
-        color: black;
-        font-family: 'Roboto Slab', serif;
-        font-size: 18px;
-        
-    }
+#menu a {
+    color: #fff;
+    font-size: 50px;
+    margin: 5px 7px;
+    padding: 20px;
+    letter-spacing: 5px;
+    text-decoration: none;
+}
 
-    #portfolio h2{
-        height: 20px;
-        margin: 0;
-        padding: 0 5px 15px;
-        background-color: rgba(0, 0, 0, 0.627);
-        color: white;
-        font-family: 'Roboto Slab', serif;
-        font-size: 20px;
-    }
+h3 {
+    margin: 0 0 80px 0;
+    color: rgb(143, 169, 189);
+    font-size: 60px;
+}
 
-    #about{
-        justify-self: right;
-        width: 30%;
-        margin: 0;
-        color: black;
-        
+hr {
+    width: 90%;
+    margin: 100px auto;
+}
 
-    }
+#about {
+    margin-bottom: 150px;
+    padding: 100px 80px;
+    background-color: rgb(24, 26, 27);
+    color: rgb(175, 168, 157);
+    font-family: "Source Sans Pro",Helvetica,sans-serif;
+    font-size: 30px;
+    line-height: 1.6;
+    opacity: 80%;
+}
 
-    #about h2{
-        height: 20px;
-        margin: 0;
-        padding: 0 5px 15px;
-        background-color: rgba(0, 0, 0, 0.627);
-        color: white;
-        font-family: 'Roboto Slab', serif;
-        font-size: 20px;
-    }
+#about table {
+    margin: 100px auto;
+    padding: 25px;
+    border: 2px solid white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 100;
+    font-size: 45px;
+    list-style: none;
+    line-height: 2.0;
+    color: rgb(228, 226, 224);
+}
 
-    #about ul{
-        justify-self: center;
-        margin: 50px 0 0 0;
-        padding: 0 0 0 0;
-        font-size: 80px;
+#about .title {
+    font-weight: 900;
+    text-align: left;
+    color: rgb(255, 243, 197);
+}
+
+#services {
+    margin-bottom: 150px;
+    padding: 100px 40px;
+    background-color: rgb(24, 26, 27);
+    color: rgb(175, 168, 157);
+    font-family: "Source Sans Pro",Helvetica,sans-serif;
+    font-size: 30px;
+    line-height: 1.6;
+    opacity: 80%;
+}
+
+#services ul {
+    margin-top: 125px;
+}
+
+#services ul li {
+    width: 750px;
+    margin: 20px 0 ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 40px;
+    color: rgb(255, 243, 197);
+}
+
+.fa-star {
+    color: rgb(175, 168, 157);
+}
+
+.star-on {
+    color: rgb(255, 100, 43);
+}
+
+#contact {
+    height: fit-content;
+    margin-bottom: 60px;
+    padding: 100px 40px;
+    background-color: rgb(24, 26, 27);
+    color: rgb(175, 168, 157);
+    font-family: "Source Sans Pro",Helvetica,sans-serif;
+    opacity: 80%;
+}
+
+#contact form {
+    height: fit-content;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 40px;
+    line-height: 1.6;
+}
+
+label {
+    height: fit-content;
+    width: 600px;
+    margin: 25px;
+}
+
+input {
+    height: 50px;
+    width: 100%;
+}
+
+textarea {
+    height: 250px;
+    width: 100%;
+}
+
+button {
+    margin-top: 30px;
+    padding: 25px 75px;
+    background-color: #4f6e86;
+    color: #fff;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+#projects {
+    margin-bottom: 150px;
+    padding: 100px 80px;
+    background-color: rgb(24, 26, 27);
+    color: rgb(175, 168, 157);
+    font-family: "Source Sans Pro",Helvetica,sans-serif;
+    font-size: 30px;
+    line-height: 1.6;
+    opacity: 80%;
+}
+
+#projects h4 {
+    text-decoration: none;
+    color: rgb(255, 243, 197);
+}
+
+#projects img {
+    opacity: 100%;
+     
+}
+
+#projects a {
+    text-decoration: none;
+    color: rgb(255, 143, 240);
+}
+
+@media only screen and (min-width: 900px) {
+    body {
+        margin: 4% auto;
     }
 }
