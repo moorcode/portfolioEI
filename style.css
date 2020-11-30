@@ -246,7 +246,7 @@ button {
     color: rgb(255, 143, 240);
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 700px) {
     body {
         margin: 4% auto;
     }
