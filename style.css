@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
 body{
-    max-width: 1180px;
     min-width: 400px;
     background-color: rgb(63, 88, 107);
     background-image: url(https://moorcode.files.wordpress.com/2020/08/lmc-1.jpg);
@@ -33,8 +32,8 @@ main{
 }
 
 #branding {
-    margin-bottom: 150px;
-    padding: 75px 5px 55px 5px;
+    margin: 0 auto 150px auto;
+    padding: 100px 80px;
     background-color: rgb(24, 26, 27);
     text-align: center;
     opacity: 90%;
@@ -145,7 +144,7 @@ hr {
 
 #services {
     margin-bottom: 150px;
-    padding: 100px 40px;
+    padding: 100px 80px;
     background-color: rgb(24, 26, 27);
     color: rgb(175, 168, 157);
     font-family: "Source Sans Pro",Helvetica,sans-serif;
@@ -179,8 +178,8 @@ hr {
 
 #contact {
     height: fit-content;
-    margin-bottom: 60px;
-    padding: 100px 40px;
+    margin-bottom: 150px;
+    padding: 100px 80px;
     background-color: rgb(24, 26, 27);
     color: rgb(175, 168, 157);
     font-family: "Source Sans Pro",Helvetica,sans-serif;
@@ -247,10 +246,12 @@ button {
     color: rgb(255, 143, 240);
 }
 
-@media only screen and (min-width: 557px) {
+@media only screen and (min-width: 800px) {
     body {
-        margin: auto 10%;
-        max-width: 100vw;
+        margin: auto;
+        padding: 2% 25%;
+        width: fit-content;
+        max-width: 100%;
     }
 
     #banner {
@@ -259,6 +260,7 @@ button {
 
     #branding {
         padding-top: 10px;
+        width: fit-content;
     }
 
     .logo {
@@ -303,6 +305,12 @@ button {
 
     td {
         font-size: .7em;
+    }
+
+    #about, #services, #contact, #projects {
+        margin: 0 auto 150px auto;
+        min-width: fit-content;
+        width: 900px;
     }
 
     #services ul {
