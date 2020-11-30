@@ -246,8 +246,93 @@ button {
     color: rgb(255, 143, 240);
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 800px) {
     body {
-        margin: 4% auto;
+        margin: auto 10%;
+        max-width: 100vw;
+    }
+
+    #banner {
+        height: 20px;
+    }
+
+    #branding {
+        padding-top: 10px;
+    }
+
+    .logo {
+        height: 250px;
+        min-height: 150px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        margin: 3% 0;
+        font-size: 3.5em;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 2em;
+    }
+
+    #social-media {
+        margin: 0;
+        font-size: 1em;
+    }
+    
+    #social-media a {
+        padding: .5em .5em;
+        font-size: 1.4em;
+    }
+
+    #menu {
+        margin: 0;
+    }
+
+    #menu a {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    td {
+        font-size: .7em;
+    }
+
+    #services ul {
+        margin: 0;
+    }
+
+    #services hr {
+        margin: 35px 0;
+    }
+
+    #services ul li {
+        font-size: 1em;
+    }
+
+    #contact h3 {
+        font-size: 2.3em;
+    }
+
+    label {
+        margin: 10px;
+        font-size: .7em;
+    } 
+
+    input {
+        height: 35px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+    
+    button {
+        padding: 1%;
+        font-size: .7em;
     }
 }
