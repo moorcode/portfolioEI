@@ -81,7 +81,7 @@ h2 {
     color: #fff;
     font-size: 40px;
     margin: 5px 9px;
-    padding: 25px;
+    padding: 5px;
     border-radius: 50%;
 }
 
@@ -118,7 +118,7 @@ hr {
 
 #about {
     margin-bottom: 150px;
-    padding: 100px 80px;
+    padding: 50px 20px;
     background-color: rgb(24, 26, 27);
     color: rgb(175, 168, 157);
     font-family: "Source Sans Pro",Helvetica,sans-serif;
@@ -133,7 +133,7 @@ hr {
     border: 2px solid white;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 100;
-    font-size: 45px;
+    font-size: ;
     list-style: none;
     line-height: 2.0;
     color: rgb(228, 226, 224);
@@ -147,7 +147,7 @@ hr {
 
 #services {
     margin-bottom: 150px;
-    padding: 100px 80px;
+    padding: 50px 20px;
     background-color: rgb(24, 26, 27);
     color: rgb(175, 168, 157);
     font-family: "Source Sans Pro",Helvetica,sans-serif;
@@ -249,41 +249,54 @@ button {
     color: rgb(255, 143, 240);
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 650px) {
     body {
         margin: 0 auto;
-        padding: 2% 2%;
+        padding: 0 0;
         min-width: 100vw;
     }
 
+    header {
+        width: 800px;
+        margin: 0 auto;
+        padding: 0 0; 
+    }
+
+    main {
+        width: 800px;
+        margin: 0 auto;
+        padding: 0 0; 
+    }
+
     #banner {
-        height: 20px;
+        height: 30px;
     }
 
     #branding {
-        padding-top: 10px;
-        width: fit-content;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0;
     }
 
     .logo {
-        height: 250px;
+        height: 300px;
         min-height: 150px;
         margin: 0 auto;
     }
 
     h1 {
-        margin: 3% 0;
-        font-size: 3.5em;
+        margin: 1% 0;
+        font-size: 4em;
     }
 
     h2 {
-        margin: 0;
+        margin: 1% 0;
         font-size: 2em;
     }
 
     #social-media {
-        margin: 0;
-        font-size: 1em;
+        margin: 1% 0 10% 0;
+        font-size: 1.5em;
     }
     
     #social-media a {
@@ -292,44 +305,56 @@ button {
     }
 
     #menu {
-        min-width: fit-content;
-        max-width: 100%;
-        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0 0;
+        padding: 2%;
     }
 
     #menu a {
-        font-size: 30px;
+        font-size: 2.8em;
     }
 
     h3 {
-        font-size: 1.2em;
+        margin: 0 0 8% 0;
+        font-size: 1.5em;
+    }
+
+    #about table {
+        margin: 0 auto 10% auto;
     }
 
     td {
-        font-size: .7em;
+        font-size: 1.3em;
+    }
+
+    h4, p {
+        
+        font-size: 1.2em;
     }
 
     #about, #services, #contact, #projects {
         margin: 0 auto 150px auto;
-        width: 700px;
+        padding: 4% 4%;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     #services ul {
         margin: 0;
-    }
-
-    #services hr {
-        margin: 35px 0;
+        padding: 0;
     }
 
     #services ul li {
         width: 100%;
         justify-content: space-between;
         font-size: 1em;
+        border-bottom: 2px solid gray;
+        line-height: 2.5;
     }
 
     #contact h3 {
-        font-size: 2.3em;
+        font-size: 2.7em;
     }
 
     label {
