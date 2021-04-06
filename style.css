@@ -34,6 +34,7 @@ main{
 }
 
 #branding {
+    height: calc(100vh - 70px);
     margin: 0 auto 150px auto;
     padding: 100px 80px;
     background-color: rgb(24, 26, 27);
@@ -194,7 +195,7 @@ hr {
     display: flex;
     flex-flow: column;
     align-items: center;
-    font-size: 40px;
+    font-size: 2.7em;
     line-height: 1.6;
 }
 
@@ -219,8 +220,8 @@ button {
     padding: 25px 75px;
     background-color: #4f6e86;
     color: #fff;
-    font-size: 40px;
-    letter-spacing: 2px;
+    font-size: 40px;s
+    letter-spacing: 1.2px;
 }
 
 #projects {
@@ -276,6 +277,7 @@ button {
         width: 100%;
         box-sizing: border-box;
         padding: 0;
+        font-size: .7em;
     }
 
     .logo {
@@ -295,7 +297,7 @@ button {
     }
 
     #social-media {
-        margin: 1% 0 10% 0;
+        margin: 1% 0 0 0;
         font-size: 1.5em;
     }
     
@@ -312,25 +314,25 @@ button {
     }
 
     #menu a {
-        font-size: 2.8em;
+        font-size: 2em;
     }
 
     h3 {
-        margin: 0 0 8% 0;
-        font-size: 1.5em;
+        margin: 0 0 4% 0;
+        font-size: 1em;
     }
 
     #about table {
-        margin: 0 auto 10% auto;
+        margin: 0 auto 4% auto;
+        font-size: .7em;
     }
 
     td {
-        font-size: 1.3em;
+        font-size: 1em;
     }
 
     h4, p {
-        
-        font-size: 1.2em;
+        font-size: .7em;
     }
 
     #about, #services, #contact, #projects {
@@ -348,13 +350,17 @@ button {
     #services ul li {
         width: 100%;
         justify-content: space-between;
-        font-size: 1em;
+        font-size: .7em;
         border-bottom: 2px solid gray;
         line-height: 2.5;
     }
 
-    #contact h3 {
+    #contact h3{
         font-size: 2.7em;
+    }
+
+    #contact {
+        font-size: .7em;
     }
 
     label {
