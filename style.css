@@ -28,7 +28,7 @@ header, main {
 
 #branding {
     width: 100%;
-    min-width: 100%;
+    max-width: 100%;
     height: 100%;
     min-height: 100%;
     margin: 0 auto 15%;
@@ -407,24 +407,24 @@ button {
 @media only screen and (min-width: 750px) {
     
     body, html {
-        min-width: 100vw;
+        min-width: 98vw;
         min-height: fit-content;
         margin: 0;
         padding: 0;
     }
 
     main {
-        min-width: 100vw;
+        max-width: 100%;
         min-height: 100vw;
         margin: 0;
-        padding: 1%;
+        padding: 0;
         display: grid; 
         grid-template-columns: 1fr 2fr;
         gap: 0 10px;
     }
 
     #branding {
-        min-width: 100vw;
+        min-width: 100%;
         height: 5vw;
         margin: 0 0 2% 0;
         display: grid;
@@ -468,7 +468,7 @@ button {
     }
 
     #about {
-        max-width: 100vw;
+        max-width: 100%;
         height: fit-content;
         margin: 0 0 0 0;
         padding: 0 2%;
@@ -484,7 +484,7 @@ button {
     }
 
     #projects {
-        width: auto;
+        max-width: 100%;
         margin: 0 0 0 0;
         padding: 0 2%;
     }
