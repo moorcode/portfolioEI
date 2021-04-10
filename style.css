@@ -415,24 +415,26 @@ button {
     main {
         height: fit-content;
         margin: 0;
+        padding: 2%;
+        position: relative;
         display: grid; 
         grid-template-columns: 1fr 2fr;
     }
 
     #branding {
         width: 100%;
-        height: 4vw;
+        height: 5vw;
         margin: 0 0 2% 0;
         display: grid;
         grid-template-columns: auto auto auto;
+        align-items: center;
     }
 
     .logo {
         display: none;
-        width: .2vw;
+        width: 5px;
         height: auto;
         margin: 0;
-        grid-area: 1 / 2 / 2 / 3;
         background-color: rgb(24, 26, 27);
         opacity: 80;
     }
@@ -459,18 +461,14 @@ button {
     }
 
     #services {
-        margin: 0 2%;
+        margin: 0 2% 0 0;
         grid-area: 1 / 1 / 1 / 2;
     }
 
     #about {
-        width: auto;
-        margin: 0 0 0 2%;
-        padding: 2%;
-        float: left;
         height: fit-content;
-        display: grid;
-        grid-template-columns: auto auto;
+        margin: 0 0 0 2%;
+        padding: 1%;
         
     }
 
@@ -479,7 +477,7 @@ button {
     }
 
     #about table {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 
     #contact {
@@ -488,7 +486,7 @@ button {
 
     #projects {
         width: auto;
-        margin-left: 2%;
+        margin: 0 0 0 2%;
         padding: 0 2%;
     }
 }
