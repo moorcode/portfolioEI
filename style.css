@@ -407,22 +407,24 @@ button {
 @media only screen and (min-width: 750px) {
     
     body, html {
-        min-width: fit-content;
+        min-width: 100vw;
         min-height: fit-content;
         margin: 0;
+        padding: 0;
     }
 
     main {
-        height: fit-content;
+        min-width: 100vw;
+        min-height: 100vw;
         margin: 0;
-        padding: 2%;
-        position: relative;
+        padding: 1%;
         display: grid; 
         grid-template-columns: 1fr 2fr;
+        gap: 0 10px;
     }
 
     #branding {
-        width: 100%;
+        min-width: 100vw;
         height: 5vw;
         margin: 0 0 2% 0;
         display: grid;
@@ -461,19 +463,16 @@ button {
     }
 
     #services {
-        margin: 0 2% 0 0;
+        margin: 0 0 0 0;
         grid-area: 1 / 1 / 1 / 2;
     }
 
     #about {
+        max-width: 100vw;
         height: fit-content;
-        margin: 0 0 0 2%;
-        padding: 1%;
+        margin: 0 0 0 0;
+        padding: 0 2%;
         
-    }
-
-    #about h3, #services h3 {
-       display: none;
     }
 
     #about table {
@@ -481,12 +480,16 @@ button {
     }
 
     #contact {
-        margin: 2%;
+        margin: 2% 0 0 0;
     }
 
     #projects {
         width: auto;
-        margin: 0 0 0 2%;
+        margin: 0 0 0 0;
         padding: 0 2%;
+    }
+
+   #projects h4 {
+        font-size: 1em;
     }
 }
