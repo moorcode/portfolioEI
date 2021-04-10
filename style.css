@@ -91,7 +91,7 @@ h2 {
 #menu {
     width: 100%;
     height: 2.3em;
-    margin: 3% 0 0 0;
+    margin: 6% 0 0 0;
     padding: 0;
     background-color: #4f6e86;
     display: flex;
@@ -110,7 +110,7 @@ h2 {
 }
 
 #about {
-    margin: 0 auto 15% auto;
+    margin: 0 auto 10% auto;
     padding: 1px 4%;
     background-color: rgb(24, 26, 27);
     color: rgb(175, 168, 157);
