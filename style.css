@@ -278,8 +278,13 @@ button {
 
 @media only screen and (min-width: 500px) {
 
+    header {  
+        margin: 0;
+    }
+
     #branding {
         width: 90vw;
+        margin: 0 0 10% 0;
         max-height: fit-content;
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -340,7 +345,7 @@ button {
     }
 
     #about, #services, #contact, #projects {
-        margin: 0 auto 4% auto;
+        margin: 0 auto 10% auto;
         padding: 4% 4%;
         width: 100%;
         box-sizing: border-box;
@@ -399,6 +404,91 @@ button {
     }
 }
 
-@media only screen and (min-width 700px) {
+@media only screen and (min-width: 750px) {
     
+    body, html {
+        min-width: fit-content;
+        min-height: fit-content;
+        margin: 0;
+    }
+
+    main {
+        height: fit-content;
+        margin: 0;
+        display: grid; 
+        grid-template-columns: 1fr 2fr;
+    }
+
+    #branding {
+        width: 100%;
+        height: 4vw;
+        margin: 0 0 2% 0;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .logo {
+        display: none;
+        width: .2vw;
+        height: auto;
+        margin: 0;
+        grid-area: 1 / 2 / 2 / 3;
+        background-color: rgb(24, 26, 27);
+        opacity: 80;
+    }
+
+    h1 {
+        width: 100%;
+        margin: 0;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    h2 {
+        width: 100%;
+        margin: 0;
+        grid-area: 1 / 3 / 2 / 4;
+    }
+
+    #socialmedia {
+        width: 400px;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    #services {
+        margin: 0 2%;
+        grid-area: 1 / 1 / 1 / 2;
+    }
+
+    #about {
+        width: auto;
+        margin: 0 0 0 2%;
+        padding: 2%;
+        float: left;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: auto auto;
+        
+    }
+
+    #about h3, #services h3 {
+       display: none;
+    }
+
+    #about table {
+        font-size: 1em;
+    }
+
+    #contact {
+        margin: 2%;
+    }
+
+    #projects {
+        width: auto;
+        margin-left: 2%;
+        padding: 0 2%;
+    }
 }
