@@ -35,7 +35,7 @@ header, main {
     padding: 1px 0 0 0;
     background-color: rgb(24, 26, 27);
     text-align: center;
-    opacity: 90%;
+    opacity: 0.9;
 }
 
 .logo {
@@ -126,33 +126,31 @@ h3 {
 }
 
 .table-wrapper {
-    display: flex;
-    justify-content: center;
     width: 100%;
-    overflow-x: auto; /* keeps it usable on mobile */
+    max-width: 850px;
+    margin: 2rem auto;
+    overflow-x: auto;
 }
 
 .about-table {
     width: 100%;
-    max-width: 900px;   /* adjust to whatever looks best */
-    margin: 0 auto;
     border-collapse: collapse;
-}
-
-.about-table th,
-.about-table td {
-    text-align: center;
-    padding: 12px;
-}
-
-table {
-    margin: 4% auto;
-    padding: 2%;
     border: 1px solid white;
     font-family: 'Open Sans Condensed', sans-serif;
-    list-style: none;
-    line-height: 2.0;
-    color: rgb(228, 226, 224);
+    color: rgb(228,226,224);
+}
+
+.about-table td {
+    padding: 10px 14px;
+    vertical-align: top;
+    word-break: break-word;
+}
+
+.about-table td:first-child {
+    width: 180px;
+    white-space: nowrap;
+    color: rgb(255,243,197);
+    font-weight: bold;
 }
 
 td.title {
@@ -374,7 +372,7 @@ button {
     #services ul {
         margin: 0;
         padding: 0 12%;
-        font-size: 1.1m;
+        font-size: 1.1em;
     }
 
     #services ul li {
