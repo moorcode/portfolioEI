@@ -17,7 +17,7 @@ html {
 body {
     width: 100%;
     margin: 0 auto;
-padding: 2rem;
+    padding: 2rem;
     background-color: rgb(63, 88, 107);
     background-image: url(https://moorcode.files.wordpress.com/2020/08/lmc-1.jpg);
     background-position: right;
@@ -423,6 +423,7 @@ button {
         grid-template-rows: auto auto auto;
         gap: 10px;
         align-items: start;
+        align-content: space-evenly;
     }
 
     #about {
