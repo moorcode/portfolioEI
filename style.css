@@ -11,7 +11,7 @@
 
 html {
     width: 90%;
-    margin: 0 auto;
+    margin: 4% auto;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
 header,
 main {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 15%;
 }
 
 
