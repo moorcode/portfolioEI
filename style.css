@@ -10,13 +10,14 @@
 }
 
 html {
-    width: 90%;
-    margin: 4% auto;
+    width: 100%;
+    margin: 0;
 }
 
 body {
     width: 100%;
     margin: 0 auto;
+padding: 2rem;
     background-color: rgb(63, 88, 107);
     background-image: url(https://moorcode.files.wordpress.com/2020/08/lmc-1.jpg);
     background-position: right;
@@ -28,7 +29,7 @@ body {
 header,
 main {
     width: 100%;
-    margin: 0 auto 15%;
+    margin: 0 auto 2rem;
 }
 
 
@@ -36,8 +37,8 @@ main {
 
 #branding {
     width: 100%;
-    margin: 0 auto 15%;
-    padding: 1px 0 0;
+    margin: 0 auto 2rem;
+    padding: 1rem 2rem;
     background-color: rgb(24, 26, 27);
     text-align: center;
     opacity: .9;
@@ -110,13 +111,12 @@ h2 {
 #services,
 #contact,
 #projects {
-    background-color: rgb(24, 26, 27);
+    background-color: rgba(24, 26, 27, .85);
     color: rgb(175, 168, 157);
     font-family: "Source Sans Pro", Helvetica, sans-serif;
     line-height: 1.6;
-    opacity: .8;
-    margin-bottom: 10%;
-    padding: 1px 4%;
+    padding: 2rem;
+    border-radius: 8px;
 }
 
 
