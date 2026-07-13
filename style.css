@@ -386,15 +386,12 @@ button {
     }
 
     .desktop-logo {
-        display:block;
-        grid-column:1;
-        grid-row:1;
-        width:90px;
-        height:90px;
-        object-fit:cover;
-        border-radius:50%;
-        margin: 0 auto 1rem;
-        align-self: start;
+        display: block;
+        width: 180px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0;
+        margin: 0 0 1.5rem;
     }
 
     h1,
@@ -411,9 +408,7 @@ button {
         display: none;
     }
 
-
     main {
-        position: relative;
         max-width: 1700px;
         margin: 0 auto;
         display: grid;
@@ -424,32 +419,24 @@ button {
         align-items: start;
     }
 
-
-    /* TOP LEFT */
     #services {
         grid-column: 1;
         grid-row: 1;
     }
 
-
-    /* TOP RIGHT */
     #about {
         grid-column: 2;
         grid-row: 1;
     }
 
-
-    /* BOTTOM LEFT */
-    #contact {
-        grid-column: 1;
-        grid-row: 3;
-    }
-
-
-    /* BOTTOM RIGHT */
     #projects {
         grid-column: 2;
         grid-row: 2;
+    }
+
+    #contact {
+        grid-column: 1;
+        grid-row: 3;
     }
 
 }
