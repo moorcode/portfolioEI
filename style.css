@@ -125,40 +125,30 @@ h3 {
     font-size: 1.1em;
 }
 
-.table-wrapper {
-    width: 100%;
-    max-width: 850px;
+.about-card {
+    max-width: 650px;
     margin: 2rem auto;
-    overflow-x: auto;
+    padding: 2rem;
+
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1rem 2rem;
+
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+
+    background: rgba(0,0,0,.15);
 }
 
-.about-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid white;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: rgb(228,226,224);
-}
-
-.about-table td {
-    padding: 10px 14px;
-    vertical-align: top;
-    word-break: break-word;
-}
-
-.about-table td:first-child {
-    width: 180px;
-    white-space: nowrap;
+.about-card .label {
     color: rgb(255,243,197);
-    font-weight: bold;
+    font-weight: 700;
+    text-align: right;
 }
 
-td.title {
-    color: rgb(255, 243, 197);
-    font-size: 1em;
-    font-weight: 800;
+.about-card div {
+    line-height: 1.6;
 }
-
 p {
     margin: 4% auto;
     padding: 0 0 0 4%;
