@@ -420,21 +420,21 @@ button {
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 2fr;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto auto auto;
         gap: 10px;
         align-items: start;
         align-content: space-evenly;
     }
 
-    #about {
+    /* #about {
         grid-column: 2;
         grid-row: 1;
     }
 
-    /* #services {
+    #services {
         grid-column: 1;
         grid-row: 2;
-    } */
+    }
 
     #projects {
         grid-column: 2;
@@ -444,7 +444,7 @@ button {
     #contact {
         grid-column: 1;
         grid-row: 3;
-    }
+    } */
 
 }
 @media (max-width: 900px) {
