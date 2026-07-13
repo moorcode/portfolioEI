@@ -126,12 +126,15 @@ h3 {
 }
 
 .about-card {
+    width: min(100%, 600px);
+    aspect-ratio: 1 / 1;
     max-width: 650px;
     margin: 2rem auto;
     padding: 2rem;
 
     display: grid;
-    grid-template-columns: 180px 1fr;
+    grid-template-columns: 170px 1fr;
+    align-content: start;
     gap: 1rem 2rem;
 
     border: 1px solid rgba(255,255,255,.2);
@@ -409,6 +412,18 @@ button {
 
     #projects img {
         /* width: 100%; */
+    }
+}
+
+@media (max-width: 600px) {
+    .about-card {
+        grid-template-columns: 1fr;
+        gap: .25rem;
+    }
+
+    .about-card .label {
+        text-align: left;
+        margin-top: 1rem;
     }
 }
 
