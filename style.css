@@ -132,36 +132,25 @@ h3 {
 
     display: grid;
     grid-template-columns: 180px 1fr;
-    gap: 1rem 1.5rem;
+    column-gap: 2rem;
+    row-gap: 1rem;
 
-    border: 2px solid rgba(255,255,255,.25);
-    border-radius: 8px;
-    background: rgba(0,0,0,.15);
-
+    border: 1px solid white;
     box-sizing: border-box;
 }
 
 .about-card .label {
-    color: rgb(255,243,197);
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.2rem;
+    color: rgb(255, 243, 197);
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 1.1rem;
     font-weight: 700;
-    letter-spacing: .08em;
     text-align: right;
+    white-space: nowrap;
 }
 
-.about-card > div {
-    padding: .35rem 0;
-    line-height: 1.7;
-}
-
-.about-card > div:nth-last-child(-n+2) {
-    border-bottom: none;
-}
-
-.about-card > div:nth-child(4n-1),
-.about-card > div:nth-child(4n) {
-    border-bottom: 1px solid rgba(255,255,255,.08);
+.about-card > div:not(.label) {
+    color: rgb(228, 226, 224);
+    line-height: 1.6;
 }
 
 #services {
