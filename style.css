@@ -125,6 +125,26 @@ h3 {
     font-size: 1.1em;
 }
 
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto; /* keeps it usable on mobile */
+}
+
+.about-table {
+    width: 100%;
+    max-width: 900px;   /* adjust to whatever looks best */
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.about-table th,
+.about-table td {
+    text-align: center;
+    padding: 12px;
+}
+
 table {
     margin: 4% auto;
     padding: 2%;
