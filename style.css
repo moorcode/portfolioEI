@@ -126,36 +126,42 @@ h3 {
 }
 
 .about-card {
-    width: min(100%, 600px);
-    aspect-ratio: 1 / 1;
-    max-width: 650px;
+    width: min(100%, 650px);
     margin: 2rem auto;
     padding: 2rem;
 
     display: grid;
-    grid-template-columns: 170px 1fr;
-    align-content: start;
-    gap: 1rem 2rem;
+    grid-template-columns: 180px 1fr;
+    gap: 1rem 1.5rem;
 
-    border: 1px solid rgba(255,255,255,.2);
+    border: 2px solid rgba(255,255,255,.25);
     border-radius: 8px;
-
     background: rgba(0,0,0,.15);
+
+    box-sizing: border-box;
 }
 
 .about-card .label {
     color: rgb(255,243,197);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2rem;
     font-weight: 700;
+    letter-spacing: .08em;
     text-align: right;
 }
 
-.about-card div {
-    line-height: 1.6;
+.about-card > div {
+    padding: .35rem 0;
+    line-height: 1.7;
 }
-p {
-    margin: 4% auto;
-    padding: 0 0 0 4%;
-    font-size: 1em;
+
+.about-card > div:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+.about-card > div:nth-child(4n-1),
+.about-card > div:nth-child(4n) {
+    border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 #services {
@@ -287,6 +293,20 @@ button {
     color: rgb(255, 143, 240);
 }
 
+@media (max-width: 650px) {
+
+    .about-card {
+        grid-template-columns: 1fr;
+        gap: .2rem;
+        padding: 1.5rem;
+    }
+
+    .about-card .label {
+        text-align: left;
+        margin-top: 1rem;
+    }
+}
+
 @media only screen and (min-width: 500px) {
 
     header {  
@@ -412,18 +432,6 @@ button {
 
     #projects img {
         /* width: 100%; */
-    }
-}
-
-@media (max-width: 600px) {
-    .about-card {
-        grid-template-columns: 1fr;
-        gap: .25rem;
-    }
-
-    .about-card .label {
-        text-align: left;
-        margin-top: 1rem;
     }
 }
 
