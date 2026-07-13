@@ -393,6 +393,8 @@ button {
         height:90px;
         object-fit:cover;
         border-radius:50%;
+        margin: 0 auto 1rem;
+        align-self: start;
     }
 
     h1,
