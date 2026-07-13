@@ -471,7 +471,7 @@ button {
         grid-area: 1 / 3 / 2 / 4;
     }
 
-    #socialmedia {
+    #social-media {
         width: 400px;
         grid-area: 1 / 1 / 2 / 2;
     }
