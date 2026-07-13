@@ -385,6 +385,16 @@ button {
         display: none;
     }
 
+    .desktop-logo {
+        display:block;
+        grid-column:1;
+        grid-row:1;
+        width:90px;
+        height:90px;
+        object-fit:cover;
+        border-radius:50%;
+    }
+
     h1,
     h2 {
         margin: 0;
@@ -401,6 +411,7 @@ button {
 
 
     main {
+        position: relative;
         max-width: 1700px;
         margin: 0 auto;
         display: grid;
