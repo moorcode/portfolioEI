@@ -193,14 +193,12 @@ hr {
     border: 1px solid white;
 }
 
+.fa-star {
+    color: rgb(175,168,157);
+}
 
 .star-on {
     color: rgb(255,100,43);
-}
-
-
-.fa-star {
-    color: rgb(175,168,157);
 }
 
 /* ---------- CONTACT ---------- */
