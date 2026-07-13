@@ -364,14 +364,9 @@ button {
 /* ---------- DESKTOP ---------- */
 
 
-@media (min-width: 750px) {
+/* ---------- DESKTOP ---------- */
 
-    body,
-    html {
-        min-width: 98vw;
-        margin: 0;
-        padding: 0;
-    }
+@media (min-width: 750px) {
 
     header {
         margin-bottom: 0;
@@ -379,7 +374,7 @@ button {
 
     #branding {
         height: 5vw;
-        margin-bottom: 0;
+        margin-bottom: clamp(1rem, 2vw, 2rem);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -392,10 +387,10 @@ button {
 
     .desktop-logo {
         display: block;
-        grid-column: 1;
-        grid-row: 1;
-        width: 300px;
-        height: 300px;
+        grid-area: photo;
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 1;
         object-fit: cover;
         border-radius: 8px;
         margin: 0;
@@ -415,38 +410,44 @@ button {
         display: none;
     }
 
+
     main {
-        max-width: 1700px;
+        width: min(1700px, 100%);
         margin: 0 auto;
+
         display: grid;
+
         grid-template-columns: 1fr 2fr;
-        grid-template-rows: auto auto auto;
-        gap: 10px;
+
+        grid-template-areas:
+            "photo about"
+            "stack projects"
+            "contact projects";
+
+        gap: clamp(1rem, 2vw, 2rem);
+
         align-items: start;
-        align-content: space-evenly;
     }
 
-    /* #about {
-        grid-column: 2;
-        grid-row: 1;
-    }
 
     #services {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    #projects {
-        grid-column: 2;
-        grid-row: 2;
+        grid-area: stack;
     }
 
     #contact {
-        grid-column: 1;
-        grid-row: 3;
-    } */
+        grid-area: contact;
+    }
+
+    #about {
+        grid-area: about;
+    }
+
+    #projects {
+        grid-area: projects;
+    }
 
 }
+
 @media (max-width: 900px) {
 
     .desktop-logo {
