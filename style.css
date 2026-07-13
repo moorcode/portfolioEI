@@ -387,11 +387,13 @@ button {
 
     .desktop-logo {
         display: block;
+        grid-column: 1;
+        grid-row: 1;
         width: 180px;
-        height: auto;
+        height: 180px;
         object-fit: cover;
         border-radius: 0;
-        margin: 0 0 1.5rem;
+        margin: 0;
     }
 
     h1,
@@ -414,12 +416,11 @@ button {
         display: grid;
         grid-template-columns: 1fr 2fr;
         grid-template-rows: auto auto auto;
-        grid-auto-flow: row;
         gap: 10px;
         align-items: start;
     }
 
-    #services {
+    .desktop-logo {
         grid-column: 1;
         grid-row: 1;
     }
@@ -427,6 +428,11 @@ button {
     #about {
         grid-column: 2;
         grid-row: 1;
+    }
+
+    #services {
+        grid-column: 1;
+        grid-row: 2;
     }
 
     #projects {
@@ -440,7 +446,6 @@ button {
     }
 
 }
-
 @media (max-width: 900px) {
 
     .desktop-logo {
