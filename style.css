@@ -416,18 +416,26 @@ button {
 
 
     #services {
-        grid-column: 1;
+    grid-column: 1;
+    grid-row: 1;
     }
-
-
+    
+    
+    #contact {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    
     #about {
         grid-column: 2;
+        grid-row: 1;
     }
-
-
-    #contact,
+    
+    
     #projects {
         grid-column: 2;
+        grid-row: 2;
     }
 
 
