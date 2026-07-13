@@ -431,10 +431,10 @@ button {
         grid-row: 1;
     }
 
-    #services {
+    /* #services {
         grid-column: 1;
         grid-row: 2;
-    }
+    } */
 
     #projects {
         grid-column: 2;
