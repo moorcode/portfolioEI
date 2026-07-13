@@ -359,7 +359,6 @@ button {
 
 @media (min-width: 750px) {
 
-
     body,
     html {
         min-width: 98vw;
@@ -367,38 +366,32 @@ button {
         padding: 0;
     }
 
-
     header {
         margin-bottom: 0;
     }
 
-
     #branding {
-    height: 5vw;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2%;
+        height: 5vw;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2%;
     }
-
 
     .logo {
         display: none;
     }
-
 
     h1,
     h2 {
         margin: 0;
     }
 
-
     #social-media {
         width: 400px;
         margin: 0;
     }
-
 
     nav {
         display: none;
@@ -406,37 +399,42 @@ button {
 
 
     main {
-    max-width: 1700px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 10px;
-    align-items: start;
+        max-width: 1700px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto auto;
+        grid-auto-flow: row;
+        gap: 10px;
+        align-items: start;
     }
 
 
+    /* TOP LEFT */
     #services {
-    grid-column: 1;
-    grid-row: 1;
-    }
-    
-    
-    #contact {
         grid-column: 1;
-        grid-row: 2;
+        grid-row: 1;
     }
-    
-    
+
+
+    /* TOP RIGHT */
     #about {
         grid-column: 2;
         grid-row: 1;
     }
-    
-    
+
+
+    /* BOTTOM LEFT */
+    #contact {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+
+    /* BOTTOM RIGHT */
     #projects {
         grid-column: 2;
         grid-row: 2;
     }
-
 
 }
