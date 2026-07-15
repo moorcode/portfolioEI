@@ -1,457 +1,594 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+/* ==========================================================================
+   PORTFOLIO STYLES
+   ------------------------------------------------------------------------
+   This file owns the entire visual design of the one-page portfolio.
+   It is organized top to bottom as:
+     1. Fonts + design tokens (colors, spacing)
+     2. Space background (the "floating in space" backdrop)
+     3. Global card/panel look (the "see-through glass" effect)
+     4. Header
+     5. Card grid + individual card content (Stack / About / Contact / Projects)
+     6. Mobile breakpoint overrides
+   See README.md for a plain-language guide to tweaking any of this
+   (spacing in cards, positioning of cards, responsiveness, text).
+   ========================================================================== */
 
+/* ---------- 1. DESIGN TOKENS ---------- */
+/* Change a color here and it updates everywhere it's used. */
+:root {
+  --ink-heading: rgb(143, 169, 189); /* card titles ("Stack", "About me"...) */
+  --ink-subtitle: #a8a6a1; /* "- fullstack engineer -" + all divider/border lines */
+  --ink-body: rgb(175, 168, 157); /* paragraph + label text */
+  --ink-body-strong: rgb(228, 226, 224); /* about-card values */
+  --accent-yellow: rgb(255, 243, 197); /* all "second level" titles: about labels, stack skill names, project titles */
+  --accent-star: rgb(255, 100, 43); /* filled stars */
+  --accent-link: rgb(255, 143, 240); /* project links */
 
-/* ---------- GLOBAL ---------- */
+  --panel-bg: rgba(16, 19, 28, 0.55); /* translucent glass fill for header + cards */
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --panel-blur: 22px;
+
+  --edge-gutter: clamp(1rem, 4vw, 3rem); /* space kept between panels and the screen edge */
+  --header-inset: 0.6rem; /* desktop: header's distance from the screen edge AND its own inner padding — kept equal and small */
+  --content-max: 1400px; /* header content never spreads wider than this */
+  --main-max: 1400px; /* main card grid never spreads wider than this — matches header so cards fill the available width instead of leaving large unused side margins */
+
+  --font-display: 'Space Mono', monospace; /* name / big headings */
+  --font-nav: 'Bebas Neue', sans-serif; /* nav links */
+  --font-label: 'Open Sans Condensed', sans-serif; /* ALL-CAPS labels */
+  --font-body: 'Inter', system-ui, sans-serif; /* paragraphs, inputs */
+  --font-subtitle: 'Yrsa', Georgia, serif; /* "- fullstack engineer -", matches the original site's h2 */
+}
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html {
-    width: 100%;
-    margin: 0;
-}
-
+html,
 body {
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgb(63, 88, 107);
-    background-image: url(https://moorcode.files.wordpress.com/2020/08/lmc-1.jpg);
-    background-position: right;
-    background-size: auto;
-    background-repeat: repeat;
-    background-attachment: fixed;
+  min-height: 100%;
 }
 
-header,
-main {
-    width: 100%;
-    margin: 0 auto 2rem;
+/* ---------- 2. BACKGROUND ---------- */
+/* A fixed, repeating space photo backdrop, stored locally at
+   images/space-bg.jpg so the page loads fast. Swap that file for a
+   different background image whenever you like — same filename, same spot. */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink-body);
+  line-height: 1.6;
+  background-color: rgb(63, 88, 107);
+  background-image: url('./images/space-bg.jpg');
+  background-position: right;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
-
-/* ---------- HEADER ---------- */
-
-#branding {
-    width: 100%;
-    margin: 0 auto 2rem;
-    padding: 1rem 2rem;
-    background-color: rgb(24, 26, 27);
-    text-align: center;
-    opacity: .9;
+.page {
+  min-height: 100vh;
 }
 
-.logo {
-    width: 30%;
-    min-width: 10em;
-    margin: 4% auto;
+/* ---------- 3. GLASS PANEL LOOK ---------- */
+/* Shared "see-through floating card" treatment. Individual main cards use
+   the same tokens directly (see .card in section 5) since each one is its
+   own rounded box rather than sharing one big panel. */
+.header-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  backdrop-filter: blur(var(--panel-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--panel-blur)) saturate(150%);
+  box-shadow:
+    0 20px 60px -20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.desktop-logo {
-    display: none;
+/* ---------- 4. HEADER ---------- */
+/* The <header> itself is allowed to stretch nearly edge to edge (its only
+   constraint is --edge-gutter so it never touches the viewport). The
+   .header-panel is what actually floats — a fixed top margin keeps it off
+   the top of the screen too. */
+.site-header {
+  width: 100%;
+  padding: var(--edge-gutter);
+  padding-bottom: 0;
 }
 
-h1 {
-    margin: 0 auto;
-    font-family: "Anonymous Pro", monospace;
-    font-size: 1.5em;
-    color: rgb(143, 169, 189);
+.header-panel {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 1.5rem clamp(1.25rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-h2 {
-    margin: 4% auto;
-    color: #a8a6a1;
-    font-family: "Yrsa", Georgia, serif;
-    font-size: 1.1em;
+/* Desktop: the header should sit as close to the screen edges as possible
+   (without touching) and be as small/tight as it can be — so its own inner
+   padding is reduced to match the same small gap it keeps from the screen
+   edge, instead of a larger, different inner padding. */
+@media (min-width: 800px) {
+  .site-header {
+    padding: var(--header-inset);
+    padding-bottom: 0;
+  }
+
+  .header-panel {
+    padding: var(--header-inset);
+    gap: 0.6rem;
+  }
 }
 
-
-#social-media {
-    width: 100%;
-    height: 2em;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    list-style: none;
+.branding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-#social-media a {
-    background-color: #4f6e86;
-    padding: .5em;
-    color: white;
-    border-radius: 50%;
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-
-#menu {
-    width: 100%;
-    height: 2.3em;
-    margin: 6% 0 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #4f6e86;
-    list-style: none;
-    font-family: 'Bebas Neue', sans-serif;
-}
-
-#menu a {
-    color: white;
-    font-size: 1.1em;
-    letter-spacing: .1em;
-    text-decoration: none;
-}
-
-
-/* ---------- SECTIONS ---------- */
-
-#about,
-#services,
-#contact,
-#projects {
-    background-color: rgba(24, 26, 27, .85);
-    color: rgb(175, 168, 157);
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
-    line-height: 1.6;
-    padding: 2rem;
-    border-radius: 8px;
-}
-
-/* .headshot-card {
-    background-color: rgba(24, 26, 27, .85);
-    padding: 2rem;
-    border-radius: 8px;
-} */
-
-h3 {
-    margin: 4% 0;
-    color: rgb(143, 169, 189);
-    font-size: 1.1em;
-}
-
-
-/* ---------- ABOUT GRID TABLE ---------- */
-
-
-.about-card {
-    width: min(100%, 650px);
-    margin: 2rem auto;
-    padding: 2rem;
-
+/* Desktop: name, title, and social icons all sit on one line. The row is a
+   3-column grid (name | title | icons) so the title lands centered in the
+   row itself, not just centered between the name and icons. `.identity`
+   switches to `display: contents` so its two children (h1, h2) become
+   direct grid items and land in columns 1 and 2. */
+@media (min-width: 800px) {
+  .branding {
     display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 1rem 2rem;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: baseline;
+  }
 
-    border: 1px solid white;
+  .identity {
+    display: contents;
+  }
+
+  .identity h1 {
+    justify-self: start;
+  }
+
+  .identity h2 {
+    justify-self: center;
+  }
+
+  .social-media {
+    justify-self: end;
+  }
 }
 
+.identity h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700; /* name is bold */
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+  color: var(--ink-heading);
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+
+/* Matches the original site's h2 exactly: Yrsa serif at 1.1em, not italic. */
+.identity h2 {
+  margin: 0;
+  font-family: var(--font-subtitle);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1em;
+  color: var(--ink-subtitle);
+}
+
+/* Headshot: hidden by default (mobile-first). Desktop turns it into a small
+   round portrait inline with the name; mobile makes it a larger square
+   image (see MOBILE section below for the override). */
+.headshot--mobile {
+  display: none;
+}
+
+.social-media {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-media a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background-color: rgba(79, 110, 134, 0.55);
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.social-media a:hover {
+  background-color: rgba(79, 110, 134, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Desktop nav: inline row, visible next to the branding row (this is the
+   nav content that was previously only ever shown on mobile). Mobile turns
+   this into a full-width bar — see MOBILE section. Gap is a small fixed
+   value (not viewport-scaled) so the links stay grouped tightly together,
+   like the social icons, instead of spreading out on wide screens. */
+.site-nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-nav);
+}
+
+/* Desktop: nav sits centered below the one-line branding row, with links
+   spaced a little further apart (+10px) than the base gap. */
+@media (min-width: 800px) {
+  .site-nav ul {
+    justify-content: center;
+    gap: calc(0.9rem + 10px);
+  }
+}
+
+/* "About" nav link only shows up in the nav on smaller (mobile) views. */
+.nav-about-mobile {
+  display: none;
+}
+
+.site-nav a {
+  color: white;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.site-nav a:hover {
+  border-color: var(--accent-yellow);
+}
+
+/* ---------- 5. MAIN CARD GRID ---------- */
+.page > main.card-grid {
+  max-width: var(--main-max);
+  margin: var(--edge-gutter) auto;
+  margin-top: 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: single column (overridden below) */
+  /* Cards must never touch each other (or anything else) at any viewport
+     width, so the grid always keeps a real gap between them. */
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+@media (min-width: 800px) {
+  /* Left column (narrower): Photo stacked directly above Stack.
+     Right column (wider): About, spanning both of those rows so it sits
+     beside Photo+Stack as one taller block. Projects and Contact each get
+     their own full-width row below. Row heights stay auto so no row is
+     forced taller than its own content needs. */
+  .page > main.card-grid {
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-areas:
+      'photo about'
+      'stack about'
+      'projects projects'
+      'contact contact';
+  }
+
+  #stack {
+    grid-area: stack;
+  }
+
+  #about {
+    grid-area: about;
+  }
+
+  #projects {
+    grid-area: projects;
+  }
+
+  #contact {
+    grid-area: contact;
+  }
+}
+
+/* Each card is its own independent rounded glass box, spaced apart by the
+   grid gap above — never flush against a neighbor, the header, or the
+   screen edge. TO ADJUST SPACING BETWEEN CARDS, change the `gap` above.
+   TO ADJUST SPACING INSIDE A CARD, change this `padding`. */
+.card {
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+}
+
+/* ---------- PHOTO CARD ---------- */
+/* Desktop-only headshot card. Hidden on mobile, where the header shows its
+   own headshot instead. Sized to a fixed square, centered horizontally
+   over the (wider) Stack card below it, pinned to the top of its area.
+   TO RESIZE: change width/height below (they must match, it's a square). */
+.photo-card {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .photo-card {
+    grid-area: photo;
+    display: flex;
+    width: 17.5rem;
+    height: 17.5rem;
+    padding: 0;
+    overflow: hidden;
+    justify-self: center;
+    align-self: start;
+  }
+
+  .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.card h3 {
+  margin: 0 0 1.25rem;
+  color: var(--ink-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem); /* enlarged card titles */
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+
+.card p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+/* ---------- STACK CARD ---------- */
+.skill-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Name and stars anchor to opposite ends of the row (full-width divider
+   line), but the right edge is pulled in by a fixed 30px so the two ends
+   sit noticeably closer together than a full edge-to-edge spread. */
+.skill-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  padding-right: 30px;
+  border-bottom: 1px solid var(--ink-subtitle);
+}
+
+.skill-list li:last-child {
+  border-bottom: 0;
+}
+
+.skill-name {
+  color: var(--accent-yellow);
+  font-family: var(--font-label);
+  font-weight: 400; /* unbolded, same size as About's labels */
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.star-rating .star {
+  color: var(--ink-body);
+}
+
+.star-rating .star-on {
+  color: var(--accent-star);
+}
+
+/* ---------- ABOUT CARD ---------- */
+.about-card {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) 1fr;
+  gap: 0.85rem 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--ink-subtitle);
+  border-radius: 0; /* square, not rounded */
+}
+
+.about-row {
+  display: contents;
+}
 
 .about-card .label {
-    color: rgb(255,243,197);
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 800;
-    text-align: right;
-    white-space: nowrap;
+  color: var(--accent-yellow);
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: right;
+  white-space: nowrap;
 }
 
-
-.about-card > div:not(.label) {
-    color: rgb(228,226,224);
-    line-height: 1.6;
+.about-card > .about-row > div:not(.label) {
+  color: var(--ink-body-strong);
 }
 
-
-p {
-    margin: 4% auto;
-    padding-left: 4%;
-    font-size: 1em;
-}
-
-
-/* ---------- SERVICES ---------- */
-
-
-#services ul {
-    margin: 4% auto;
-    padding: 4%;
-    font-size: .9em;
-}
-
-
-#services ul li {
-    width: auto;
-    margin: 3% 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    color: rgb(255,243,197);
-}
-
-
-hr {
-    width: 95%;
-    margin: 0 auto;
-    border: 1px solid white;
-}
-
-.fa-star {
-    color: rgb(175,168,157);
-}
-
-.star-on {
-    color: rgb(255,100,43);
-}
-
-/* ---------- CONTACT ---------- */
-
+/* ---------- CONTACT CARD ---------- */
 #contact form {
-    margin: 4% auto;
-    padding: 1px 4%;
-    display: flex;
-    flex-direction: column;
-    font-size: .9em;
-    line-height: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.95rem;
 }
 
-
-label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 6%;
+#contact label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-
-input {
-    padding: 2%;
-    font-family: "Anonymous Pro", monospace;
-    font-size: 1em;
+#contact input,
+#contact textarea {
+  padding: 0.65rem 0.8rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ink-subtitle);
+  border-radius: 8px;
+  color: var(--ink-body-strong);
+  font-family: var(--font-body);
+  font-size: 1rem;
 }
 
-
-textarea {
-    height: 15em;
-    font-family: "Anonymous Pro", monospace;
-    font-size: 1em;
+#contact textarea {
+  min-height: 10em;
+  resize: vertical;
 }
 
-
-button {
-    margin: 1%;
-    padding: 2% 8%;
-    align-self: center;
-    background-color: #4f6e86;
-    color: white;
-    font-size: 1em;
-    letter-spacing: 1.2px;
+#contact button {
+  align-self: flex-start;
+  padding: 0.65rem 2rem;
+  background-color: #4f6e86;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-
-/* ---------- PROJECTS ---------- */
-
-
-#projects {
-    font-size: 1em;
+#contact button:hover {
+  background-color: #5f83a0;
+  transform: translateY(-1px);
 }
 
-
-#projects h4 {
-    margin: 4% 0;
-    font-size: 1em;
-    color: rgb(255,243,197);
+/* ---------- PROJECTS CARD ---------- */
+/* TO ADJUST SPACING BETWEEN PROJECT ENTRIES, change this `gap`. */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-
-#projects img {
-    width: 100%;
-    margin: 4% 0;
+.project {
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--ink-subtitle);
 }
 
-
-#projects a {
-    text-decoration: none;
-    color: rgb(255,143,240);
+.project:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
-
-
-/* ---------- TABLET ---------- */
-
-
-@media (min-width: 500px) {
-
-
-    #branding {
-        width: 90vw;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: center;
-    }
-
-
-    .logo {
-        width: 100%;
-        margin: 10% 4% 0;
-    }
-
-
-    h1 {
-        font-size: 2rem;
-    }
-
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-
-    #menu a {
-        font-size: 1.3em;
-    }
-
-
-    #about,
-    #services,
-    #contact,
-    #projects {
-        padding: 4%;
-    }
-
-
-    #services ul {
-        padding: 0 12%;
-        font-size: 1.1em;
-    }
-
-
-    #contact form {
-        padding: 0 12%;
-    }
-
-
+.project a {
+  text-decoration: none;
 }
 
-
-
-/* ---------- MOBILE ABOUT CARD ---------- */
-
-
-@media (max-width: 650px) {
-
-    .about-card {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-        gap: .5rem;
-    }
-
-
-    .about-card .label {
-        text-align: left;
-        margin-top: 1rem;
-    }
-
+/* "Second level" title inside Projects — still sized to read clearly next
+   to the enlarged card title above it. */
+.project h4 {
+  margin: 0 0 0.4rem;
+  color: var(--accent-yellow);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
 }
 
-
-
-/* ---------- DESKTOP ---------- */
-
-
-/* ---------- DESKTOP ---------- */
-
-@media (min-width: 750px) {
-
-    header {
-        margin-bottom: 0;
-    }
-
-    #branding {
-        height: 5vw;
-        margin-bottom: clamp(1rem, 2vw, 2rem);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2%;
-    }
-
-    .logo {
-        display: none;
-    }
-
-    .desktop-logo {
-        display: block;
-        grid-area: photo;
-        width: 100%;
-        max-width: 300px;
-        aspect-ratio: 1;
-        object-fit: cover;
-        border-radius: 8px;
-        margin: 0;
-    }
-
-    h1,
-    h2 {
-        margin: 0;
-    }
-
-    #social-media {
-        width: 400px;
-        margin: 0;
-    }
-
-    nav {
-        display: none;
-    }
-
-
-    main {
-        width: min(1700px, 100%);
-        margin: 0 auto;
-
-        display: grid;
-
-        grid-template-columns: 1fr 2fr;
-
-        grid-template-areas:
-            "photo about"
-            "stack projects"
-            "contact projects";
-
-        gap: clamp(1rem, 2vw, 2rem);
-
-        align-items: start;
-    }
-
-
-    #services {
-        grid-area: stack;
-    }
-
-    #contact {
-        grid-area: contact;
-    }
-
-    #about {
-        grid-area: about;
-    }
-
-    #projects {
-        grid-area: projects;
-    }
-
+.project p {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
 }
 
-@media (max-width: 900px) {
+.project-embed {
+  display: block;
+  width: 100%;
+  height: 900px;
+  border: 0;
+  border-radius: 8px;
+}
 
-    .desktop-logo {
-        display: none;
-    }
+.project-preview {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px;
+}
 
+a {
+  color: var(--accent-link);
+}
+
+/* ==========================================================================
+   6. MOBILE
+   - header photo reappears (square-ish) and nav becomes a full-width bar
+   - card order changes to Stack, Projects, About, Contact
+   ========================================================================== */
+@media (max-width: 799px) {
+  .headshot--mobile {
+    display: block;
+    width: clamp(6rem, 30vw, 9rem);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+    order: -1; /* photo first, before the name/title block */
+  }
+
+  .branding {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .identity {
+    align-items: center;
+  }
+
+  /* Stay grouped with a fixed gap at every width in this range, the same
+     way the social icons do — never stretch out to fill the row. */
+  .site-nav ul {
+    justify-content: center;
+    width: auto;
+  }
+
+  .site-nav a {
+    font-size: 1.15rem;
+  }
+
+  .nav-about-mobile {
+    display: list-item;
+  }
+
+  /* Re-order the four main cards for a mobile reading order of
+     Stack -> Projects -> About -> Contact. */
+  #stack {
+    order: 1;
+  }
+  #projects {
+    order: 2;
+  }
+  #about {
+    order: 3;
+  }
+  #contact {
+    order: 4;
+  }
 }
