@@ -28,7 +28,7 @@
   --panel-border: rgba(255, 255, 255, 0.14);
   --panel-blur: 22px;
 
-  --edge-gutter: clamp(1rem, 4vw, 3rem); /* space kept between panels and the screen edge */
+  --edge-gutter: clamp(1.5rem, 5vw, 3rem); /* space kept between panels and the screen edge — increased on mobile */
   --header-inset: 0.6rem; /* desktop: header's distance from the screen edge AND its own inner padding — kept equal and small */
   --content-max: 1400px; /* header content never spreads wider than this */
   --main-max: 1400px; /* main card grid never spreads wider than this — matches header so cards fill the available width instead of leaving large unused side margins */
@@ -269,7 +269,7 @@ body {
   grid-template-columns: 1fr; /* mobile: single column (overridden below) */
   /* Cards must never touch each other (or anything else) at any viewport
      width, so the grid always keeps a real gap between them. */
-  gap: clamp(1rem, 2vw, 1.75rem);
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
 @media (min-width: 800px) {
@@ -311,7 +311,7 @@ body {
    screen edge. TO ADJUST SPACING BETWEEN CARDS, change the `gap` above.
    TO ADJUST SPACING INSIDE A CARD, change this `padding`. */
 .card {
-  padding: clamp(1.75rem, 3vw, 2.75rem);
+  padding: clamp(1.5rem, 2.5vw, 2.75rem);
   background: var(--panel-bg);
   border: 1px solid var(--panel-border);
   border-radius: 8px;
@@ -350,14 +350,14 @@ body {
   margin: 0 0 1.25rem;
   color: var(--ink-heading);
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 2.6vw, 2.3rem); /* enlarged card titles */
+  font-size: clamp(1.4rem, 2.2vw, 2.3rem); /* slightly smaller on mobile */
   letter-spacing: 0.02em;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
 }
 
 .card p {
   margin: 0 0 1rem;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1vw, 1rem);
 }
 
 /* ---------- STACK CARD ---------- */
@@ -367,7 +367,7 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 /* Name and stars anchor to opposite ends of the row (full-width divider
@@ -378,9 +378,10 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 0.6rem;
-  padding-right: 30px;
+  padding-bottom: 0.5rem;
+  padding-right: 20px;
   border-bottom: 1px solid var(--ink-subtitle);
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
 }
 
 .skill-list li:last-child {
@@ -391,7 +392,7 @@ body {
   color: var(--accent-yellow);
   font-family: var(--font-label);
   font-weight: 400; /* unbolded, same size as About's labels */
-  font-size: 1rem;
+  font-size: 1em;
   letter-spacing: 0.03em;
 }
 
@@ -429,32 +430,33 @@ body {
   color: var(--accent-yellow);
   font-family: var(--font-label);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
   text-align: right;
   white-space: nowrap;
 }
 
 .about-card > .about-row > div:not(.label) {
   color: var(--ink-body-strong);
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
 }
 
 /* ---------- CONTACT CARD ---------- */
 #contact form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  font-size: 0.95rem;
+  gap: 0.9rem;
+  font-size: clamp(0.9rem, 0.95vw, 0.95rem);
 }
 
 #contact label {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.3rem;
 }
 
 #contact input,
 #contact textarea {
-  padding: 0.65rem 0.8rem;
+  padding: 0.6rem 0.75rem;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--ink-subtitle);
   border-radius: 8px;
@@ -470,12 +472,12 @@ body {
 
 #contact button {
   align-self: flex-start;
-  padding: 0.65rem 2rem;
+  padding: 0.6rem 1.8rem;
   background-color: #4f6e86;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 0.95vw, 1rem);
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
@@ -491,11 +493,11 @@ body {
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .project {
-  padding-top: 1.75rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--ink-subtitle);
 }
 
@@ -511,15 +513,15 @@ body {
 /* "Second level" title inside Projects — still sized to read clearly next
    to the enlarged card title above it. */
 .project h4 {
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.3rem;
   color: var(--accent-yellow);
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
 }
 
 .project p {
-  margin: 0 0 1rem;
-  font-size: 0.95rem;
+  margin: 0 0 0.9rem;
+  font-size: clamp(0.85rem, 0.95vw, 0.95rem);
 }
 
 .project-embed {
@@ -600,5 +602,7 @@ a {
   .about-card {
     grid-template-columns: auto 1fr;
     gap: 0.85rem 0.75rem;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
   }
 }
