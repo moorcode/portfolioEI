@@ -301,6 +301,8 @@ body {
 
   #contact {
     grid-area: contact;
+    max-width: 500px;
+    justify-self: center;
   }
 }
 
@@ -592,5 +594,11 @@ a {
   }
   #contact {
     order: 4;
+  }
+
+  /* Mobile about-card: labels shrink naturally while staying right-aligned */
+  .about-card {
+    grid-template-columns: auto 1fr;
+    gap: 0.85rem 0.75rem;
   }
 }
