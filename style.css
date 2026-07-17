@@ -1,17 +1,4 @@
-/* ==========================================================================
-   PORTFOLIO STYLES
-   ------------------------------------------------------------------------
-   This file owns the entire visual design of the one-page portfolio.
-   It is organized top to bottom as:
-     1. Fonts + design tokens (colors, spacing)
-     2. Space background (the "floating in space" backdrop)
-     3. Global card/panel look (the "see-through glass" effect)
-     4. Header
-     5. Card grid + individual card content (Stack / About / Contact / Projects)
-     6. Mobile breakpoint overrides
-   See README.md for a plain-language guide to tweaking any of this
-   (spacing in cards, positioning of cards, responsiveness, text).
-   ========================================================================== */
+
 
 /* ---------- 1. DESIGN TOKENS ---------- */
 /* Change a color here and it updates everywhere it's used. */
@@ -50,9 +37,9 @@ body {
 }
 
 /* ---------- 2. BACKGROUND ---------- */
-/* A fixed, repeating space photo backdrop, stored locally at
-   images/space-bg.jpg so the page loads fast. Swap that file for a
-   different background image whenever you like — same filename, same spot. */
+/* Used to be a fixed, repeating space photo backdrop, stored locally at
+   images/space-bg.jpg so the page loads fast. But I swapped that file for
+   the original large background image below. Stabds to be compressed since it lods slowly. */
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -62,7 +49,6 @@ body {
   background-image: url(https://moorcode.wordpress.com/wp-content/uploads/2020/08/lmc-1.jpg);
   background-position: right;
   background-size: auto;
-  background-repeat: repeat;
   background-attachment: fixed;
 }
 
